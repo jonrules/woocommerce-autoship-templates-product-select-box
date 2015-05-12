@@ -37,21 +37,22 @@
 		
 		?>
 	
-		<fieldset>
-			<legend class="wc-autoship-add-to-autoship"><?php echo __( 'Add to Auto-Ship', 'wc-autoship' ); ?></legend>
-			<h3 class="wc-autoship-price" <?php if ( empty( $autoship_price ) ) echo 'style="display:none"'; ?>><?php echo __( 'Auto-Ship price:', 'wc-autoship'); ?> <?php echo esc_html( $autoship_price ); ?></h3>
-			<p class="wc-autoship-selectfrequency"><?php echo __( 'Select an Auto-Ship Frequency to add this item to auto-ship.', 'wc-autoship' ); ?></p>
-			<p class="wc-autoship-frequency">
-				<label for="wc_autoship_frequency"><?php echo __( 'Auto-Ship Frequency:', 'wc-autoship' ); ?></label>
-				<select name="wc_autoship_frequency" id="wc_autoship_frequency">
-					<option value="">&mdash;<?php echo __( 'SELECT', 'wc-autoship' ); ?>&mdash;</option>
-					<?php foreach ( $frequency_options as $name => $days ): ?>
-						<?php if ( $days < $autoship_min_frequency || $days > $autoship_max_frequency ) continue; ?>
-						<option value="<?php echo esc_html( $days ); ?>" <?php echo checked( $days, $autoship_default_frequency ); ?>><?php echo esc_html( $name ); ?></option>
-					<?php endforeach; ?>
-				</select>
-			</p>
-		</fieldset>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<p class="wc-autoship-selectfrequency"><?php echo __( 'Select an Auto-Ship Frequency to add this item to auto-ship.', 'wc-autoship' ); ?></p>
+				<h3 class="wc-autoship-price" <?php if ( empty( $autoship_price ) ) echo 'style="display:none"'; ?>><?php echo __( 'Auto-Ship price:', 'wc-autoship'); ?> <?php echo wc_price( $autoship_price ); ?></h3>			
+				<p class="wc-autoship-frequency">
+					<label for="wc_autoship_frequency"><?php echo __( 'Auto-Ship Frequency:', 'wc-autoship' ); ?></label>
+					<select name="wc_autoship_frequency" id="wc_autoship_frequency">
+						<option value="">&mdash;<?php echo __( 'SELECT', 'wc-autoship' ); ?>&mdash;</option>
+						<?php foreach ( $frequency_options as $name => $days ): ?>
+							<?php if ( $days < $autoship_min_frequency || $days > $autoship_max_frequency ) continue; ?>
+							<option value="<?php echo esc_html( $days ); ?>" <?php echo checked( $days, $autoship_default_frequency ); ?>><?php echo esc_html( $name ); ?></option>
+						<?php endforeach; ?>
+					</select>
+				</p>
+			</div>
+		</div>
 	</div>
 	
 </div>
