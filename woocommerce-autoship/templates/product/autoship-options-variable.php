@@ -47,7 +47,7 @@
 						<option value="">&mdash;<?php echo __( 'SELECT', 'wc-autoship' ); ?>&mdash;</option>
 						<?php foreach ( $frequency_options as $name => $days ): ?>
 							<?php if ( $days < $autoship_min_frequency || $days > $autoship_max_frequency ) continue; ?>
-							<option value="<?php echo esc_html( $days ); ?>" <?php echo checked( $days, $autoship_default_frequency ); ?>><?php echo esc_html( $name ); ?></option>
+							<option value="<?php echo esc_html( $days ); ?>" <?php echo selected( $days, $autoship_default_frequency ); ?>><?php echo esc_html( $name ); ?></option>
 						<?php endforeach; ?>
 					</select>
 				</p>
